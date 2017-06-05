@@ -1,0 +1,26 @@
+{
+  "name": "testnod",
+  "version": "1.0.0",
+  "description": "testing node js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "salim",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samdalu/My-Test-Node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/samdalu/My-Test-Node/issues"
+  },
+  "homepage": "https://github.com/samdalu/My-Test-Node#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongojs": "^2.4.0"
+  }
+}
