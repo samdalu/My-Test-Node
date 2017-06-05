@@ -1,0 +1,25 @@
+ul{
+  list-style: none;
+  margin-top: 60px;
+}
+.filters a{
+  float:left;
+  padding:30px;
+  border-radius: 70px;
+  background: #ffcb85;
+  text-decoration: none;
+}
+.filters a:hover{
+  color:white;
+}
+.resetFilter{
+  padding:10px;
+  margin-bottom: 4px;
+  background: #231454;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.resetFilter:hover{
+  color:white;
+  text-decoration: none;
+}

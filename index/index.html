@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="SalApp">
+  <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css" >
+    <meta charset="utf-8">
+    <title>WMC Table</title>
+  </head>
+  <body>
+    <div class="container" ng-controller="MyCtrl">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name <a href="#" ng-click="orderByField='name'; reverseSort = !reverseSort" ><span class ="glyphicon glyphicon-arrow-down"></span> </a></th>
+            <th>Team</th>
+            <th>Years of Experience <a href="#" ng-click="orderByField='yoe'; reverseSort = !reverseSort" ><span class ="glyphicon glyphicon-arrow-down"></span> </a></th>
+            <th>Editing</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "member in memberslist | filter:{team:currentTeam.team} | orderBy:orderByField:reverseSort">
+            <td>{{member.name}}</td>
+            <td>{{member.team}}</td>
+            <td>{{member.yoe | number}}</td>
+            <td><button type="button" class="btn btn-warning" ng-click="editmember(member._id);">Edit</button>
+                <button type="button" class="close" aria-label="Close" ng-click="removemember(member._id)">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </td>
+          </tr>
+          <tr>
+            <td><input class="form-control" ng-model="member.name"></td>
+            <td><select class="form-control" ng-model="member.team"><option ng-repeat="team in teams" value="{{team.team}}">{{team.team}}</option></select></td>
+            <td><input class = "form-control" type="number" ng-model="member.yoe" min="0"></td>
+            <td><button class="btn btn-success" ng-click="addmember()">Add Member</button></td>
+            <td><button class="btn btn-info" ng-click="savemember()">Save Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="#" ng-click="setCurrentTeam(null)" class="resetFilter">Reset Filters</a>
+      <ul class="filters">
+        <li  ng-repeat="team in teams">
+          <a href="#" ng-click="setCurrentTeam(team)">{{team.team}}</a>
+        </li>
+      </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="controller/controller.js"></script>
+  </body>
+</html>
