@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var mongojs = require('mongojs');
-var db = mongojs('mongodb://aspirewms:mLab2017!@ds159220.mlab.com:59220/aspirewms', ['memberslist']);
+
 var bodyParser = require('body-parser');
 
 app.use(express.static(__dirname + "/index"));
